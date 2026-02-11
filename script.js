@@ -9,16 +9,16 @@ window.addEventListener('DOMContentLoaded', function() {
   // Inject popup CSS
   var style = document.createElement('style');
   style.textContent = `
-    .popup__text,
-    .popup__text:link,
-    .popup__text:visited,
-    .popup__text:active,
-    .popup__text:hover,
-    .popup__text:focus {
+    .dvxyz-popup__text,
+    .dvxyz-popup__text:link,
+    .dvxyz-popup__text:visited,
+    .dvxyz-popup__text:active,
+    .dvxyz-popup__text:hover,
+    .dvxyz-popup__text:focus {
       text-decoration: none !important;
       color: #1a1a1a !important;
     }
-    .popup {
+    .dvxyz-popup {
       position: fixed;
       right: 36px;
       bottom: 36px;
@@ -37,20 +37,20 @@ window.addEventListener('DOMContentLoaded', function() {
       z-index: 9999;
       transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
     }
-    .popup__icon {
+    .dvxyz-popup__icon {
       display: flex;
       align-items: center;
       margin-right: 10px;
     }
-    .popup__icon img {
+    .dvxyz-popup__icon img {
       width: 60px;
       height: 60px;
       display: block;
     }
-    .popup__text {
+    .dvxyz-popup__text {
       margin-right: 12px;
     }
-    .popup__close {
+    .dvxyz-popup__close {
       background: none;
       border: none;
       color: #888;
@@ -63,12 +63,12 @@ window.addEventListener('DOMContentLoaded', function() {
       transition: background 0.2s, color 0.2s;
       align-self: center;
     }
-    .popup__close:hover, .popup__close:focus {
+    .dvxyz-popup__close:hover, .dvxyz-popup__close:focus {
       color: #2196f3;
       background: #e3f2fd;
       outline: none;
     }
-    .popup, .popup:visited, .popup:active {
+    .dvxyz-popup, .dvxyz-popup:visited, .dvxyz-popup:active {
       color: #1a1a1a;
       text-decoration: none;
     }
@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   // Create popup
   var popup = document.createElement('div');
-  popup.className = 'popup';
+  popup.className = 'dvxyz-popup';
   popup.style.position = 'fixed';
   popup.style.right = '36px';
   popup.style.bottom = '36px';
@@ -102,11 +102,11 @@ window.addEventListener('DOMContentLoaded', function() {
   popup.style.height = '';
   popup.style.boxSizing = 'border-box';
   popup.innerHTML = `
-    <span class="popup__icon" style="display: flex; align-items: center; margin-right: 10px;">
+    <span class="dvxyz-popup__icon" style="display: flex; align-items: center; margin-right: 10px;">
       <img src="https://raw.githubusercontent.com/devvyyxyz/devvyyxyz-popup/refs/heads/main/logo.png" alt="Devvyyxyz Logo" style="width: 60px; height: 60px; display: block;" />
     </span>
-    <span class="popup__text" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #1a1a1a; margin-right: 12px;">Made by Devvyyxyz</span>
-    <button class="popup__close" aria-label="Close popup">&times;</button>
+    <span class="dvxyz-popup__text" style="font-family: 'Montserrat', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #1a1a1a; margin-right: 12px;">Made by Devvyyxyz</span>
+    <button class="dvxyz-popup__close" aria-label="Close popup">&times;</button>
   `;
   popup.style.cursor = 'pointer';
   popup.tabIndex = 0;
@@ -114,7 +114,7 @@ window.addEventListener('DOMContentLoaded', function() {
   popup.setAttribute('aria-label', 'Made by Devvyyxyz, link to devvyy.xyz');
   popup.addEventListener('click', function(e) {
     // Don't trigger link if close button is clicked
-    if (e.target.classList.contains('popup__close')) return;
+    if (e.target.classList.contains('dvxyz-popup__close')) return;
     window.open('https://devvyy.xyz', '_blank', 'noopener');
   });
   popup.addEventListener('keypress', function(e) {
@@ -123,7 +123,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   });
   // Add close button handler
-  popup.querySelector('.popup__close').addEventListener('click', function(ev) {
+  popup.querySelector('.dvxyz-popup__close').addEventListener('click', function(ev) {
     ev.stopPropagation();
     popup.style.opacity = '0';
     setTimeout(function() {
