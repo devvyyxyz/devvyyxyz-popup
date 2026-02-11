@@ -78,32 +78,35 @@ window.addEventListener('DOMContentLoaded', function() {
       word-break: break-word;
       flex: 1 1 auto;
     }
-    .dvxyz-popup__github {
+    .dvxyz-popup__iconbtn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       background: #f5f5f5;
       border: 1px solid #e7eaf3;
       color: #24292f;
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 17px;
       border-radius: 5px;
-      padding: 3px 10px 3px 8px;
-      margin: 0 8px 0 0;
+      width: 32px;
+      height: 32px;
+      margin: 0 6px 0 0;
       cursor: pointer;
       text-decoration: none;
       transition: background 0.13s, border-color 0.13s;
       outline: none;
-      gap: 5px;
+      padding: 0;
     }
-    .dvxyz-popup__github:hover, .dvxyz-popup__github:focus {
+    .dvxyz-popup__iconbtn:last-of-type {
+      margin-right: 0;
+    }
+    .dvxyz-popup__iconbtn:hover, .dvxyz-popup__iconbtn:focus {
       background: #e7eaf3;
       border-color: #bdbdbd;
       text-decoration: none;
     }
-    .dvxyz-popup__github svg {
+    .dvxyz-popup__iconbtn svg {
       width: 18px;
       height: 18px;
-      margin-right: 3px;
       fill: #24292f;
       display: inline-block;
       vertical-align: middle;
@@ -145,9 +148,14 @@ window.addEventListener('DOMContentLoaded', function() {
   popup.innerHTML = `
     <span class="dvxyz-popup__icon"><img src="https://raw.githubusercontent.com/devvyyxyz/devvyyxyz-popup/refs/heads/main/logo.png" alt="Devvyyxyz Logo" /></span>
     <span class="dvxyz-popup__text">Made by Devvyyxyz</span>
-    <a class="dvxyz-popup__github" href="https://github.com/devvyyxyz" target="_blank" rel="noopener" aria-label="Visit GitHub">
+    <a class="dvxyz-popup__iconbtn" href="https://github.com/devvyyxyz" target="_blank" rel="noopener" aria-label="GitHub">
       <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0.198242C3.58 0.198242 0 3.77824 0 8.19824C0 11.6382 2.29 14.4382 5.47 15.4982C5.87 15.5682 6.02 15.3382 6.02 15.1382C6.02 14.9582 6.01 14.3382 6.01 13.6382C4 14.0382 3.48 12.8982 3.48 12.8982C3.13 12.0382 2.63 11.7982 2.63 11.7982C1.87 11.2782 2.69 11.2882 2.69 11.2882C3.54 11.3482 3.98 12.1582 3.98 12.1582C4.73 13.3982 5.96 13.0382 6.41 12.8382C6.48 12.3382 6.68 11.9982 6.91 11.7982C5.04 11.5982 3.07 10.8982 3.07 7.77824C3.07 6.87824 3.39 6.15824 3.94 5.57824C3.85 5.37824 3.57 4.52824 4.03 3.39824C4.03 3.39824 4.71 3.18824 6.01 4.05824C6.65 3.87824 7.34 3.78824 8.03 3.78824C8.72 3.78824 9.41 3.87824 10.05 4.05824C11.35 3.18824 12.03 3.39824 12.03 3.39824C12.49 4.52824 12.21 5.37824 12.12 5.57824C12.67 6.15824 13 6.87824 13 7.77824C13 10.9082 11.03 11.5982 9.16 11.7882C9.45 12.0282 9.7 12.5182 9.7 13.2582C9.7 14.2582 9.69 14.9382 9.69 15.1382C9.69 15.3382 9.84 15.5782 10.25 15.4982C13.43 14.4382 15.72 11.6382 15.72 8.19824C15.72 3.77824 12.14 0.198242 8 0.198242Z"/></svg>
-      GitHub
+    </a>
+    <a class="dvxyz-popup__iconbtn" href="https://portfolio.devvyy.xyz" target="_blank" rel="noopener" aria-label="Portfolio">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="14" height="10" rx="2" stroke="#24292f" stroke-width="1.5"/><path d="M7 8.5C7 7.67157 7.67157 7 8.5 7H11.5C12.3284 7 13 7.67157 13 8.5V11.5C13 12.3284 12.3284 13 11.5 13H8.5C7.67157 13 7 12.3284 7 11.5V8.5Z" stroke="#24292f" stroke-width="1.5"/></svg>
+    </a>
+    <a class="dvxyz-popup__iconbtn" href="https://tools-list.devvyy.xyz" target="_blank" rel="noopener" aria-label="Tools List">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="12" height="12" rx="2" stroke="#24292f" stroke-width="1.5"/><path d="M7 7H13V13H7V7Z" stroke="#24292f" stroke-width="1.5"/></svg>
     </a>
     <button class="dvxyz-popup__close" aria-label="Close popup">&times;</button>
   `;
@@ -160,8 +168,8 @@ window.addEventListener('DOMContentLoaded', function() {
     // Don't trigger link if close button or GitHub button is clicked
     if (
       e.target.classList.contains('dvxyz-popup__close') ||
-      e.target.classList.contains('dvxyz-popup__github') ||
-      (e.target.closest && e.target.closest('.dvxyz-popup__github'))
+      e.target.classList.contains('dvxyz-popup__iconbtn') ||
+      (e.target.closest && e.target.closest('.dvxyz-popup__iconbtn'))
     ) {
       return;
     }
