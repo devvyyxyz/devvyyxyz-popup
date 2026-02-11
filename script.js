@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     .dvxyz-popup__text {
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 700;
       color: #3d3d3d;
       white-space: normal;
       overflow: visible;
@@ -84,8 +84,9 @@ window.addEventListener('DOMContentLoaded', function() {
       background: none !important;
       border: none !important;
       color: #24292f !important;
+      font-family: 'Open Sans', Arial, sans-serif !important;
+      font-weight: 700 !important;
       font-size: 0;
-      font-weight: 600;
       border-radius: 50%;
       padding: 0 2px 0 0;
       margin: 0 8px 0 0;
