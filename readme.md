@@ -7,7 +7,7 @@ Add a stylish, closable "Made by Devvyyxyz" popup to your website with one line 
 1. Add this line before your closing `</body>` tag:
 
 ```
-<script src="https://raw.githubusercontent.com/devvyyxyz/devvyyxyz-popup/refs/heads/main/script.js"></script>
+<script src="https://devvyyxyz.github.io/devvyyxyz-popup/script.js"></script>
 ```
 
 2. The popup will appear in the bottom right corner.
