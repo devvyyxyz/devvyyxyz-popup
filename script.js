@@ -157,8 +157,14 @@ window.addEventListener('DOMContentLoaded', function() {
   popup.setAttribute('role', 'link');
   popup.setAttribute('aria-label', 'Made by Devvyyxyz, link to devvyy.xyz');
   popup.addEventListener('click', function(e) {
-    // Don't trigger link if close button is clicked
-    if (e.target.classList.contains('dvxyz-popup__close')) return;
+    // Don't trigger link if close button or GitHub button is clicked
+    if (
+      e.target.classList.contains('dvxyz-popup__close') ||
+      e.target.classList.contains('dvxyz-popup__github') ||
+      (e.target.closest && e.target.closest('.dvxyz-popup__github'))
+    ) {
+      return;
+    }
     window.open('https://devvyy.xyz', '_blank', 'noopener');
   });
   popup.addEventListener('keypress', function(e) {
