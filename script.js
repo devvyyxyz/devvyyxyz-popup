@@ -139,6 +139,42 @@ window.addEventListener('DOMContentLoaded', function() {
       color: #3d3d3d;
       text-decoration: none;
     }
+    @media (max-width: 480px) {
+      .dvxyz-popup {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        position: fixed;
+        max-width: none;
+        width: auto;
+        padding: 12px 12px;
+        height: auto;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+      }
+      .dvxyz-popup__icon img {
+        width: 34px;
+        height: 34px;
+      }
+      .dvxyz-popup__text {
+        font-size: 15px;
+        max-width: none;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        line-height: 1.15;
+        flex: 1 1 0;
+      }
+      .dvxyz-popup__github {
+        display: none;
+      }
+      .dvxyz-popup__close {
+        padding-left: 12px !important;
+        font-size: 20px !important;
+      }
+    }
   `;
   document.head.appendChild(style);
 
