@@ -1,27 +1,33 @@
-# Devvyyxyz Popup
+# Devvyy Badge Editor
 
-Add a stylish, closable "Made by Devvyyxyz" popup to your website with one line of code.
+Live badge customizer site — deploy to GitHub Pages.
 
-## Usage
+## Setup locally
 
-1. Add this line before your closing `</body>` tag:
-
-```
-<script src="https://devvyyxyz.github.io/devvyyxyz-popup/script.js"></script>
-```
-
-2. The popup will appear in the bottom right corner.
-3. Clicking the popup opens [devvyy.xyz](https://devvyy.xyz) in a new tab.
-4. The popup can be closed with the X button.
-5. No CSS file is needed; all styles are injected automatically.
-6. The logo is loaded from this repo automatically:
-
-```
-https://raw.githubusercontent.com/devvyyxyz/devvyyxyz-popup/refs/heads/main/logo.png
+```bash
+npm install
+npm run dev
 ```
 
-## Customization
-- To use a different logo, edit the script or host your own image and update the image URL in the script.
+Open [http://localhost:3000](http://localhost:3000).
 
----
-Made by [Devvyyxyz](https://devvyy.xyz)
+## Deploy to GitHub Pages
+
+1. Push this repo to GitHub
+2. Go to **Settings → Pages → Source** → select **GitHub Actions**
+3. Every push to `main` triggers an automatic build & deploy
+
+The workflow (`.github/workflows/deploy.yml`) handles everything:
+- Installs dependencies
+- Runs `next build` (static export to `./out`)
+- Deploys the `out/` directory to GitHub Pages
+
+## Rebuild the badge widget
+
+Requires Python 3 with a `FavIcon.png` in the project root or `download/devvyy-badge/`:
+
+```bash
+python scripts/build-badge-v2.py
+```
+
+This regenerates `public/devvyy-badge.js` with the embedded favicon.
