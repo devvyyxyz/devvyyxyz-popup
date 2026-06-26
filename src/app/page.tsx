@@ -416,7 +416,7 @@ export default function Home() {
 
     const script = document.createElement('script')
     script.id = 'devvyy-badge-script'
-    script.src = '/devvyy-badge.js?v=' + gen
+    script.src = (document.querySelector('meta[name="base-path"]')?.getAttribute('content') || '') + '/devvyy-badge.js?v=' + gen
     // NOT async — synchronous load prevents race conditions with rapid clicks
     document.body.appendChild(script)
 
