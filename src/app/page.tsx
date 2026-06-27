@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react'
 
+const BP = (process.env.NEXT_BASE_PATH || '') as string
+
 type AccentKey = 'blue' | 'cyan' | 'violet' | 'white' | 'electric'
 type LabelKey = 'Made by' | 'Built by' | 'Powered by' | 'Created by'
 type SpeedKey = 'instant' | 'normal' | 'dramatic'
@@ -704,11 +706,11 @@ export default function Home() {
   })
 
   return (
-    <div className="relative h-screen flex flex-col bg-background text-foreground overflow-hidden">
+    <div className="relative h-screen flex flex-col bg-background text-foreground overflow-hidden" suppressHydrationWarning>
       {/* ── TOP TOOLBAR ── */}
       <header className="flex items-center justify-between px-4 h-11 border-b border-white/5 flex-shrink-0 bg-black/20 backdrop-blur-sm">
         <div className="flex items-center gap-2.5">
-          <img src="/FavIcon.png" alt="" className="w-5 h-5 rounded" />
+          <img src={`${BP}/FavIcon.png`} alt="" className="w-5 h-5 rounded" />
           <span className="text-[12px] font-mono text-foreground/60 tracking-tight">Badge Editor</span>
         </div>
         <div className="flex items-center gap-3">
@@ -985,7 +987,7 @@ export default function Home() {
 
               {/* Brand */}
               <div>
-                <img src="/wordmark.png" className="h-5 mb-2 opacity-60" alt="" />
+                <img src={`${BP}/wordmark.png`} className="h-5 mb-2 opacity-60" alt="" />
                 <label className="block text-[10px] font-mono tracking-widest uppercase text-foreground/30 mb-2">Brand</label>
                 <input
                   type="text"

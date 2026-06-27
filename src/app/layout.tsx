@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Read basePath at build time so the client-side badge loader can resolve
+// the local devvyy-badge.js correctly on GitHub Pages subdirectory deploys.
+const basePath = process.env.NEXT_BASE_PATH || "/devvyyxyz-popup";
+
 export const metadata: Metadata = {
   title: "Devvyy Badge Editor",
   description: "Customize and install the Made by Devvyy.xyz badge widget for your website.",
   icons: {
-    icon: "/FavIcon.png",
+    icon: `${basePath}/FavIcon.png`,
   },
   openGraph: {
     title: "Devvyy Badge Editor",
@@ -13,10 +17,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-// Read basePath at build time so the client-side badge loader can resolve
-// the local devvyy-badge.js correctly on GitHub Pages subdirectory deploys.
-const basePath = process.env.NEXT_BASE_PATH || "";
 
 export default function RootLayout({
   children,
