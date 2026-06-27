@@ -1230,7 +1230,7 @@ export default function Home() {
               <pre
                 className="px-4 py-4 overflow-x-auto text-foreground/40 max-h-80 overflow-y-auto"
                 style={{
-                  fontFamily: 'var(--font-geist-mono), ui-monospace, monospace',
+                  fontFamily: 'var(--font-mono), ui-monospace, monospace',
                   fontSize: '0.7rem',
                   lineHeight: '1.8',
                   margin: 0,

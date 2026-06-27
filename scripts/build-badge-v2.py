@@ -69,8 +69,8 @@ function merge(a, b) {
 var cfg = merge(DEFAULTS, window.DevvyyBadge || {});
 cfg.socials = merge(DEFAULTS.socials, (cfg.socials || {}));
 
-/* ── Embedded Favicon ────────────────────────── */
-var FAVICON = 'FAVICON_PLACEHOLDER';
+/* ── Embedded Favicon (data URI) ─────────────── */
+var FAVICON = 'data:image/png;base64,FAVICON_PLACEHOLDER';
 
 /* ── SVG Icons ───────────────────────────────── */
 var ICONS = {
@@ -166,7 +166,7 @@ function buildCSS(theme) {
   + '@keyframes db-icon-enter{0%{transform:scale(0) rotate(-20deg);opacity:0}60%{transform:scale(1.15) rotate(3deg);opacity:1}100%{transform:scale(1) rotate(0deg);opacity:1}}'
   + '@keyframes db-panel-in{0%{transform:scale' + pd.axis + '(0.92) scale' + (pd.axis==='Y'?'X':'Y') + '(0.95);opacity:0}100%{transform:scale' + pd.axis + '(1) scale' + (pd.axis==='Y'?'X':'Y') + '(1);opacity:1}}'
   + '@keyframes db-pulse-ring{0%{transform:scale(1);opacity:0.5}100%{transform:scale(1.8);opacity:0}}'
-  + ':host{all:initial}'
+  + ':host{all:initial;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}'
   + '*{box-sizing:border-box;margin:0;padding:0}'
   + '.db-wrap{'
   +   '--db-accent:'+cfg.accent+';'
@@ -269,6 +269,18 @@ function buildCSS(theme) {
 /* ── Container & Position Mode ───────────────── */
 var _container = cfg._appendTo ? document.querySelector(cfg._appendTo) : null;
 var _posMode = _container ? 'absolute' : 'fixed';
+
+/* ── Load Font ──────────────────────────────── */
+(function(){
+  var fid = 'db-inter-font';
+  if (!document.getElementById(fid)) {
+    var lk = document.createElement('link');
+    lk.id = fid;
+    lk.rel = 'stylesheet';
+    lk.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap';
+    document.head.appendChild(lk);
+  }
+})();
 
 /* ── Create Host ─────────────────────────────── */
 var _prev = document.getElementById('devvyy-badge-root');
